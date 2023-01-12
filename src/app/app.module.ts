@@ -7,11 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ContactComponent } from './contact/contact.component';
+import { PackinglistComponent } from './packinglist/packinglist.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'ticket', component: TicketComponent },
+  { path: 'packinglist', component: PackinglistComponent },
   { path: 'contact', component: ContactComponent },
 ];
 
@@ -21,6 +23,7 @@ const routes: Routes = [
     NavbarComponent,
     HomeComponent,
     ContactComponent,
+    PackinglistComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],
