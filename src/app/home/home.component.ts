@@ -33,8 +33,4 @@ export class HomeComponent implements OnInit {
       desc: 'an image',
     });
   }
-
-  buy() {
-    alert('billet købt');
-  }
 }
