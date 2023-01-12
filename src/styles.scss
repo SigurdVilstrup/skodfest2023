@@ -5,6 +5,15 @@ html {
   font-family: "Quicksand", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+undefined {
+  flex: 1;
+}
+
 h1,
 h2,
 h3,
@@ -13,12 +22,10 @@ h5,
 h6 {
   font-family: "Anton", sans-serif;
 }
+
 h1 {
   color: #ff5d00;
   text-shadow: 1px 1px 0 #6b2700;
-}
-body {
-  height: 100%;
 }
 
 .buy-btn {

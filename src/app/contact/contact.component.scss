@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.contact-container {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.title-container {
+  padding: 3rem 3rem 0 3rem;
+  text-align: center;
+}
+
+.mail-container {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.socials-container {
+  padding-top: 2rem;
+}
+
+.icon-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
