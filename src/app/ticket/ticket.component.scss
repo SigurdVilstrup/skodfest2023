@@ -1,0 +1,25 @@
+.ticket-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+.title-container {
+  padding: 0 2rem;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.ticket-cards-container {
+  padding: 2rem;
+}
+
+.card {
+  box-shadow: 0 0 10px 0 #ccc;
+  border: none;
+}

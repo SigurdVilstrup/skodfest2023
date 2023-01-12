@@ -20,3 +20,12 @@ h1 {
 body {
   height: 100%;
 }
+
+.buy-btn {
+  background-color: #ff5d00;
+  border-radius: 0;
+  font-weight: bold;
+  color: white;
+  padding: 1rem 2rem;
+  transform: skew(-10deg);
+}
