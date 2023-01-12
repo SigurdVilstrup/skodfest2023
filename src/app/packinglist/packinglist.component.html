@@ -5,7 +5,10 @@
     <h3>Du skal huske:</h3>
     <ul class="fs-5">
       <li *ngFor="let item of checklistItems">
-        <span> <input type="checkbox" name="" id="" /> {{ item.title }} </span>
+        <span>
+          <input type="checkbox" class="packinglist-check" name="" id="" />
+          {{ item.title }}
+        </span>
       </li>
     </ul>
   </div>
