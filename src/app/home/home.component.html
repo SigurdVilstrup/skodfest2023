@@ -1,0 +1,54 @@
+<div class="container-fluid home-page-container">
+  <div class="title">
+    <img
+      src="assets/images/Skodfest22Design.png"
+      width="75"
+      alt="Skodfest logo"
+    />
+    <br />
+    <h1 class="fs-1">SKODFEST 2023</h1>
+  </div>
+  <div class="instagram">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <ng-container>
+          <div *ngFor="let image of images" class="carousel-item active">
+            <img
+              src="{{ image.url }}"
+              class="d-block w-100"
+              alt=" {{ image.desc }} "
+            />
+          </div>
+        </ng-container>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="call-to-action">
+    <p>
+      Torsdag den 13. til søndag den 16. Juli løber Skodfest 2023 af staben!
+      Skal du med?
+    </p>
+    <button type="button" class="btn btn-lg buy-btn" (click)="buy()">
+      KØB BILLET
+    </button>
+  </div>
+</div>
