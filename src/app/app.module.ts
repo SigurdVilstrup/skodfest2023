@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ContactComponent } from './contact/contact.component';
 import { PackinglistComponent } from './packinglist/packinglist.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'ticket', component: TicketComponent },
   { path: 'packinglist', component: PackinglistComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const routes: Routes = [
     HomeComponent,
     ContactComponent,
     PackinglistComponent,
+    CartComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],
