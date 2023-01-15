@@ -1,6 +1,8 @@
 :host {
   box-shadow: 0 0 10px 0 #ccc;
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
 }
 
 .navbar-toggler {
