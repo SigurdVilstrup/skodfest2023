@@ -1,13 +1,15 @@
-<div class="title-container pt-4"><h1>Indkøbskurv</h1></div>
-<div class="products-container w-100 fs-6 pb-2">
-  <div *ngFor="let product of cartProducts" class="product px-3 py-1">
-    <a href="{{ product.link }}"> {{ product.name }} </a>
-    <span>Kr. {{ product.price | number : ".2" }} </span>
+<div class="container-md cart-container">
+  <div class="title-container pt-4"><h1>Indkøbskurv</h1></div>
+  <div class="products-container w-100 fs-6 pb-2">
+    <div *ngFor="let product of cartProducts" class="product px-3 py-1">
+      <a href="{{ product.link }}"> {{ product.name }} </a>
+      <span>Kr. {{ product.price | number : ".2" }} </span>
+    </div>
   </div>
-</div>
-<div class="total-container px-3 fw-bold fs-6 pt-2" *ngIf="totalPrice">
-  <span>Total</span> <span>Kr. {{ totalPrice | number : ".2" }} </span>
-</div>
-<div class="checkout-container pt-5">
-  <button class="btn buy-btn">Gå til betaling</button>
+  <div class="total-container px-3 fw-bold fs-6 pt-2" *ngIf="totalPrice">
+    <span>Total</span> <span>Kr. {{ totalPrice | number : ".2" }} </span>
+  </div>
+  <div class="checkout-container pt-5">
+    <button class="btn buy-btn">Gå til betaling</button>
+  </div>
 </div>
