@@ -1,14 +1,14 @@
 <div class="container-md cart-container">
-  <div class="title-container pt-4"><h1>Indkøbskurv</h1></div>
+  <div class="title-container pt-4 text-center"><h1>Indkøbskurv</h1></div>
   <div class="products-container w-100 fs-6 pb-2">
-    <ng-container *ngIf="cartProducts; else noProductsInCart">
+    <ng-container *ngIf="cartProducts?.length != 0; else noProductsInCart">
       <div *ngFor="let product of cartProducts" class="product px-3 py-1">
         <a href="{{ product.link }}"> {{ product.name }} </a>
         <span>Kr. {{ product.price | number : ".2" }} </span>
       </div>
     </ng-container>
     <ng-template #noProductsInCart>
-      <div class="product px-3 py-5">
+      <div class="product px-3 py-5 justify-content-center">
         <h6>Ingen produkter i din kurv lige nu...</h6>
       </div>
     </ng-template>

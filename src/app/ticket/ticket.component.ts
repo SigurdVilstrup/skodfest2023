@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { ProductsService } from '../products.service';
+import { ProductsStoreService } from '../products-store.service';
 
 @Component({
   selector: 'app-ticket',
@@ -23,7 +23,7 @@ export class TicketComponent implements OnInit {
     },
   ];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsStoreService) {}
 
   addTicketToCart(product: Product) {
     this.productsService.addProductToCart(product);

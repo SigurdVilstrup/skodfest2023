@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { ProductsService } from '../products.service';
+import { ProductsStoreService } from '../products-store.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +9,14 @@ import { ProductsService } from '../products.service';
 })
 export class CartComponent implements OnInit {
   cartProducts?: Product[];
-
   totalPrice?: number;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsStoreService) {}
 
   ngOnInit(): void {
-    this.productsService.getCartProducts().subscribe((products) => {
-      this.cartProducts = products;
-    });
+    this.cartProducts = this.productsService.productsInCart;
+    this.totalPrice = this.cartProducts.reduce((accumulator, current) => {
+      return accumulator + current.price;
+    }, 0);
   }
 }
