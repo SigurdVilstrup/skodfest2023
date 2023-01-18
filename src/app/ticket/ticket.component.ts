@@ -1,15 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../product';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.scss']
+  styleUrls: ['./ticket.component.scss'],
 })
 export class TicketComponent implements OnInit {
+  products?: Product[] = [
+    {
+      name: 'Partoutbillet',
+      price: 500,
+      link: '',
+      description: 'Få adgang til Skodfest alle dage',
+    },
+    {
+      name: 'Endagsbillet',
+      price: 300,
+      link: '',
+      description: 'Få adgang til Skodfest en overnatning',
+    },
+  ];
 
-  constructor() { }
+  constructor(private productsService: ProductsService) {}
 
-  ngOnInit(): void {
+  addTicketToCart(product: Product) {
+    this.productsService.addProductToCart(product);
   }
 
+  ngOnInit(): void {}
 }

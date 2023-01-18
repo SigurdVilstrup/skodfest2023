@@ -10,30 +10,19 @@
     </p>
   </div>
   <div class="ticket-cards-container">
-    <ng-container>
+    <ng-container *ngFor="let product of products">
       <div class="card text-center mb-3" style="width: 18rem">
         <div class="card-body">
-          <h5 class="card-title">Partoutbillet</h5>
+          <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">
-            Ved køb af partoutbillet kan du deltage i Skodfest alle dage mad er
-            inkluderet. Øl, vin, evt. aktiviteter mm. er ikke inkluderet i
-            prisen
+            {{ product.description }}
           </p>
-          <p><i>500,00 kr.</i></p>
-          <a href="#" class="btn buy-btn">KØB PARTOUTBILLET</a>
-        </div>
-      </div>
-    </ng-container>
-    <ng-container>
-      <div class="card text-center mb-3" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">Dagsbillet</h5>
-          <p class="card-text">
-            Ved køb af dagsbillet til Skodfest kan du deltage en dag. 1
-            morgenmad, 1 frokost og 1 aftensmad er inkluderet.
+          <p>
+            <i>{{ product.price | number : "0.2" }}</i>
           </p>
-          <p><i>300,00 kr.</i></p>
-          <a href="#" class="btn buy-btn">KØB DAGSBILLET</a>
+          <a (click)="addTicketToCart(product)" class="btn buy-btn"
+            >KØB {{ product.name | uppercase }}</a
+          >
         </div>
       </div>
     </ng-container>

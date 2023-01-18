@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Product {
-  name: string;
-  price: number;
-  link: string;
-}
+import { Product } from '../product';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,28 +8,15 @@ interface Product {
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cartProducts: Product[] = [
-    { name: 'Partoutbillet', price: 600.0, link: '' },
-    { name: 'Partoutbillet', price: 600.0, link: '' },
-    { name: 'Partoutbillet', price: 600.0, link: '' },
-    { name: 'Partoutbillet', price: 600.0, link: '' },
-    { name: 'Endagsbillet', price: 300.0, link: '' },
-    { name: 'Endagsbillet', price: 300.0, link: '' },
-    { name: 'Endagsbillet', price: 300.0, link: '' },
-    { name: 'Kasse øl', price: 150.0, link: '' },
-    { name: 'Kasse øl', price: 150.0, link: '' },
-    { name: 'Kasse øl', price: 150.0, link: '' },
-  ];
+  cartProducts?: Product[];
 
   totalPrice?: number;
 
-  constructor() {}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    let totalSum = 0;
-    this.cartProducts.forEach((product) => {
-      totalSum += product.price;
+    this.productsService.getCartProducts().subscribe((products) => {
+      this.cartProducts = products;
     });
-    this.totalPrice = totalSum;
   }
 }

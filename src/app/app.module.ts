@@ -25,6 +25,7 @@ const routes: Routes = [
     NavbarComponent,
     HomeComponent,
     ContactComponent,
+    TicketComponent,
     PackinglistComponent,
     CartComponent,
   ],
