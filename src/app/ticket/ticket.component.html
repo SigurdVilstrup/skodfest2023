@@ -1,12 +1,10 @@
 <div class="ticket-container">
   <div class="title-container">
     <h1>Køb din #skodfest billet her</h1>
-    <p>
-      <span>
-        Du skal bruge en billet for at deltage i Skodfest, billetternes pris er
-        ikke sat efter at lave overskud, men for at dække omkostningerne af
-        arrangementet.
-      </span>
+    <p class="text-center">
+      Du skal bruge en billet for at deltage i Skodfest, billetternes pris er
+      ikke sat efter at lave overskud, men for at dække omkostningerne af
+      arrangementet.
     </p>
   </div>
   <div class="ticket-cards-container">
@@ -26,5 +24,21 @@
         </div>
       </div>
     </ng-container>
+  </div>
+  <div
+    class="toast {{ latestProduct != undefined ? 'show' : '' }}"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-header">
+      <strong class="mr-auto"
+        >{{
+          latestProduct != undefined ? latestProduct.name : "Ukendt produkt"
+        }}
+        er tilføjet til kurven...</strong
+      >
+      <span aria-hidden="true" (click)="closeToast()">&times;</span>
+    </div>
   </div>
 </div>

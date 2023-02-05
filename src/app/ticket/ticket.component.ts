@@ -23,11 +23,23 @@ export class TicketComponent implements OnInit {
     },
   ];
 
+  latestProduct?: Product;
+
+  productsInCart?: Product[];
+
   constructor(private productsService: ProductsStoreService) {}
 
   addTicketToCart(product: Product) {
     this.productsService.addProductToCart(product);
+    this.latestProduct = product;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productsInCart = this.productsService.productsInCart;
+  }
+
+  closeToast() {
+    this.latestProduct = undefined;
+    console.log(this.latestProduct);
+  }
 }

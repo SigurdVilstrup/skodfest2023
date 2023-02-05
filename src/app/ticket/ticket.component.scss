@@ -24,6 +24,11 @@
 }
 
 .card {
-  box-shadow: 0 0 10px 0 #ccc;
+  box-shadow: 5px 5px 10px 0px #ccc;
   border: none;
+}
+
+.toast-header {
+  display: flex;
+  justify-content: space-between;
 }
