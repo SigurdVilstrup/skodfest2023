@@ -2,8 +2,14 @@
   <div class="title-container pt-4 text-center"><h1>Indkøbskurv</h1></div>
   <div class="products-container w-100 fs-6 pb-2">
     <ng-container *ngIf="cartProducts?.length != 0; else noProductsInCart">
-      <div *ngFor="let product of cartProducts" class="product px-3 py-1">
-        <span>{{ product.name }}</span>
+      <div
+        *ngFor="let product of cartProducts; let i = index"
+        class="product px-3 py-1"
+      >
+        <span>
+          {{ product.name }}
+          <i><a (click)="removeProduct(i)">(Fjern)</a></i></span
+        >
         <span>Kr. {{ product.price | number : ".2" }} </span>
       </div>
     </ng-container>
@@ -16,7 +22,8 @@
   <div class="total-container px-3 fw-bold fs-6 pt-2" *ngIf="totalPrice">
     <span>Total</span> <span>Kr. {{ totalPrice | number : ".2" }} </span>
   </div>
-  <div class="checkout-container pt-5">
-    <a href=""><button class="btn buy-btn">Gå til betaling</button></a>
+
+  <div class="checkout-container pt-5" *ngIf="cartProducts?.length != 0">
+    <a routerLink="/checkout"><button class="btn buy-btn">Bestil</button></a>
   </div>
 </div>

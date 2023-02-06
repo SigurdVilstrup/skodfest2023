@@ -13,6 +13,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'packinglist', component: PackinglistComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({
@@ -32,9 +35,11 @@ const routes: Routes = [
     TicketComponent,
     PackinglistComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

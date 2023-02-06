@@ -3,4 +3,5 @@ export interface Product {
   price: number;
   description?: string;
   product_id: string;
+  type: 'beer' | 'ticket';
 }

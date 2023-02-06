@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from './product';
-import { Firestore, getDocs } from '@angular/fire/firestore';
+import { addDoc, Firestore, getDocs, setDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class ProductsStoreService {
 
   public products: Product[] = [];
 
-  constructor(public firestore: Firestore) {
+  constructor(public firestore: Firestore, private router: Router) {
     this.retrieveData();
   }
 
@@ -28,6 +29,7 @@ export class ProductsStoreService {
             price: item.get('price'),
             description: item.get('description'),
             product_id: item.get('product_id'),
+            type: item.get('type'),
           };
         }),
       ];
@@ -44,5 +46,34 @@ export class ProductsStoreService {
 
   public addProductToCart(product: Product) {
     this.productsInCart = [...this.productsInCart, product];
+  }
+
+  public removeProductFromCart(productIndex: number) {
+    this.productsInCart.splice(productIndex, 1);
+  }
+
+  public addOrder(data: any) {
+    const dbInstance = collection(this.firestore, 'orders');
+    const order = {
+      email: data.email,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      phone: data.phone,
+      order_paid: false,
+      total: this.productsInCart.reduce((accumulator, current) => {
+        return accumulator + current.price;
+      }, 0),
+      products: [...this.productsInCart],
+    };
+    addDoc(dbInstance, order)
+      .then(() => {
+        alert('Ordren er modtaget, venligst betal til MobilePay 2252 3620!');
+        this.router.navigate(['/']);
+        this.productsInCart = [];
+      })
+      .catch((err) => {
+        alert('Der er sket en fejl... Forsøg igen senere');
+        console.log(err);
+      });
   }
 }

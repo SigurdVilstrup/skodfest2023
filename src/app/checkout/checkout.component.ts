@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs';
 import { Product } from '../product';
 import { ProductsStoreService } from '../products-store.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CheckoutComponent implements OnInit {
   cartProducts?: Product[];
   totalPrice?: number;
 
@@ -20,10 +21,11 @@ export class CartComponent implements OnInit {
     }, 0);
   }
 
-  removeProduct(productIndex: number) {
-    this.productsService.removeProductFromCart(productIndex);
-    this.totalPrice = this.cartProducts?.reduce((accumulator, current) => {
-      return accumulator + current.price;
-    }, 0);
+  onClickSubmit(data: any) {
+    if (data.email && data.firstname && data.lastname && data.phone) {
+      this.productsService.addOrder(data);
+    } else {
+      alert('Du glemte vist at udfylde noget...');
+    }
   }
 }

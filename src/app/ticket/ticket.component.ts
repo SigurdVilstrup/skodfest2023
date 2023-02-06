@@ -15,7 +15,9 @@ export class TicketComponent implements OnInit {
   productsInCart?: Product[];
 
   constructor(private productsService: ProductsStoreService) {
-    this.products = productsService.products;
+    this.products = productsService.products
+      .filter((product) => product.type == 'ticket')
+      .reverse();
   }
 
   addTicketToCart(product: Product) {

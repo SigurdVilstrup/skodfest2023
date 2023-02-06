@@ -16,7 +16,7 @@
             {{ product.description }}
           </p>
           <p>
-            <i>{{ product.price | number : "0.2" }}</i>
+            <i>Kr. {{ product.price | number : "0.2" }}</i>
           </p>
           <a (click)="addTicketToCart(product)" class="btn buy-btn"
             >KØB {{ product.name | uppercase }}</a
@@ -39,6 +39,11 @@
         er tilføjet til kurven...</strong
       >
       <span aria-hidden="true" (click)="closeToast()">&times;</span>
+    </div>
+    <div>
+      <button routerLink="/cart" class="btn">
+        Gå til kurven for at betale!
+      </button>
     </div>
   </div>
 </div>
