@@ -3,7 +3,7 @@
   <div class="products-container w-100 fs-6 pb-2">
     <ng-container *ngIf="cartProducts?.length != 0; else noProductsInCart">
       <div *ngFor="let product of cartProducts" class="product px-3 py-1">
-        <a href="{{ product.link }}"> {{ product.name }} </a>
+        <span>{{ product.name }}</span>
         <span>Kr. {{ product.price | number : ".2" }} </span>
       </div>
     </ng-container>

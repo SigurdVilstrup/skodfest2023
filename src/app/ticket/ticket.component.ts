@@ -8,26 +8,15 @@ import { ProductsStoreService } from '../products-store.service';
   styleUrls: ['./ticket.component.scss'],
 })
 export class TicketComponent implements OnInit {
-  products?: Product[] = [
-    {
-      name: 'Partoutbillet',
-      price: 500,
-      link: '',
-      description: 'Få adgang til Skodfest alle dage',
-    },
-    {
-      name: 'Endagsbillet',
-      price: 300,
-      link: '',
-      description: 'Få adgang til Skodfest en overnatning',
-    },
-  ];
+  products?: Product[] = [];
 
   latestProduct?: Product;
 
   productsInCart?: Product[];
 
-  constructor(private productsService: ProductsStoreService) {}
+  constructor(private productsService: ProductsStoreService) {
+    this.products = productsService.products;
+  }
 
   addTicketToCart(product: Product) {
     this.productsService.addProductToCart(product);

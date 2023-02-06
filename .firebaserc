@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "skodfest2023": {
+      "hosting": {
+        "skodfest2023": [
+          "skodfest2023"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "skodfest2023"
+  }
+}

@@ -9,6 +9,10 @@ import { TicketComponent } from './ticket/ticket.component';
 import { ContactComponent } from './contact/contact.component';
 import { PackinglistComponent } from './packinglist/packinglist.component';
 import { CartComponent } from './cart/cart.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,7 +33,13 @@ const routes: Routes = [
     PackinglistComponent,
     CartComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
