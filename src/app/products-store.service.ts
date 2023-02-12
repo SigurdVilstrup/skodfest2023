@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from './product';
 import { addDoc, Firestore, getDocs, setDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
@@ -34,6 +34,10 @@ export class ProductsStoreService {
         }),
       ];
     });
+  }
+
+  get productsInCartObservable(): Observable<Product[]> {
+    return this.productsInCart$;
   }
 
   get productsInCart(): Product[] {

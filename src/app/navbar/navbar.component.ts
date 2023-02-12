@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../product';
+import { ProductsStoreService } from '../products-store.service';
 
 @Component({
   selector: 'navbar',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  productsInCart$?: Product[];
 
-  ngOnInit(): void {}
+  constructor(private productsService: ProductsStoreService) {}
+
+  ngOnInit(): void {
+    this.productsService.productsInCartObservable.subscribe((value) => {
+      this.productsInCart$ = value;
+    });
+  }
 }

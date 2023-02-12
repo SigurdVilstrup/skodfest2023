@@ -12,11 +12,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="icon-container">
-      <a class="navbar-brand" routerLink="/contact"
-        ><div class="bg-orange-circle">@</div></a
-      >
       <a class="navbar-brand" routerLink="/cart">
         <img src="assets/images/cart.png" width="35" alt="cart" />
+        <div *ngIf="productsInCart$?.length !== 0" class="zero-elem">
+          <div class="bubble-cart-counter">{{ productsInCart$?.length }}</div>
+        </div>
       </a>
       <a class="navbar-brand" routerLink="/">
         <img src="assets/images/favi.png" width="35" alt="skodfest_logo" />

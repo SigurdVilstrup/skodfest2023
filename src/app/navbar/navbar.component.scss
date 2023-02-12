@@ -26,3 +26,21 @@
 .icon-container {
   display: flex;
 }
+
+.zero-elem {
+  height: 0;
+  width: 0;
+}
+
+.bubble-cart-counter {
+  background: black;
+  position: relative;
+  top: -40px;
+  right: -20px;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
