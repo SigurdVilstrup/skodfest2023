@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { slideInAnimation } from '../animations';
 import { Product } from '../product';
 import { ProductsStoreService } from '../products-store.service';
 
@@ -6,6 +7,7 @@ import { ProductsStoreService } from '../products-store.service';
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
+  animations: [slideInAnimation],
 })
 export class CartComponent implements OnInit {
   cartProducts?: Product[];

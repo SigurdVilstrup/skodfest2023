@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -15,16 +16,40 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { animation: 'Home' },
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'ticket', component: TicketComponent },
-  { path: 'packinglist', component: PackinglistComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'ticket',
+    component: TicketComponent,
+    data: { animation: 'Ticket' },
+  },
+  {
+    path: 'packinglist',
+    component: PackinglistComponent,
+    data: { animation: 'Packinglist' },
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: { animation: 'Contact' },
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    data: { animation: 'Cart' },
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    data: { animation: 'Checkout' },
+  },
 ];
 
 @NgModule({
@@ -40,6 +65,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

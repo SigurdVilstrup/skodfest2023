@@ -25,12 +25,8 @@
       </div>
     </ng-container>
   </div>
-  <div
-    class="toast {{ latestProduct != undefined ? 'show' : '' }}"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
+
+  <div class="bottom-modal hide" #bottomModal>
     <div class="toast-header">
       <strong class="mr-auto"
         >{{
@@ -38,10 +34,10 @@
         }}
         er tilføjet til kurven...</strong
       >
-      <span aria-hidden="true" (click)="closeToast()">&times;</span>
+      <span aria-hidden="true" (click)="closeModal()">&times;</span>
     </div>
     <div class="p-3 d-flex justify-content-center">
-      <button routerLink="/cart" class="btn btn-secondary text-lg-center">
+      <button routerLink="/cart" class="btn btn-orange text-lg-center">
         Gå til kurven for at betale!
       </button>
     </div>
