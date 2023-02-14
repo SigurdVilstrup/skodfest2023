@@ -56,7 +56,7 @@ export class ProductsStoreService {
     this.productsInCart.splice(productIndex, 1);
   }
 
-  public addOrder(data: any) {
+  public addOrder(data: any): boolean {
     const dbInstance = collection(this.firestore, 'orders');
     const order = {
       email: data.email,
@@ -71,13 +71,13 @@ export class ProductsStoreService {
     };
     addDoc(dbInstance, order)
       .then(() => {
-        alert('Ordren er modtaget, venligst betal til MobilePay 2252 3620!');
-        this.router.navigate(['/']);
         this.productsInCart = [];
+        return true;
       })
       .catch((err) => {
-        alert('Der er sket en fejl... Forsøg igen senere');
         console.log(err);
+        return false;
       });
+    return false;
   }
 }

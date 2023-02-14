@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { first } from 'rxjs';
 import { Product } from '../product';
 import { ProductsStoreService } from '../products-store.service';
@@ -12,6 +12,8 @@ export class CheckoutComponent implements OnInit {
   cartProducts?: Product[];
   totalPrice?: number;
 
+  @ViewChild('bottomModal', { static: true }) bottomModal?: ElementRef;
+
   constructor(private productsService: ProductsStoreService) {}
 
   ngOnInit(): void {
@@ -24,8 +26,17 @@ export class CheckoutComponent implements OnInit {
   onClickSubmit(data: any) {
     if (data.email && data.firstname && data.lastname && data.phone) {
       this.productsService.addOrder(data);
+      this.showModal();
     } else {
       alert('Du glemte vist at udfylde noget...');
     }
+  }
+
+  showModal() {
+    this.bottomModal?.nativeElement.classList.remove('hide');
+  }
+
+  closeModal() {
+    this.bottomModal?.nativeElement.classList.add('hide');
   }
 }
