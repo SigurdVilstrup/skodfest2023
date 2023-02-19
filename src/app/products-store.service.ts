@@ -30,6 +30,7 @@ export class ProductsStoreService {
             description: item.get('description'),
             product_id: item.get('product_id'),
             type: item.get('type'),
+            priority: item.get('priority'),
           };
         }),
       ];

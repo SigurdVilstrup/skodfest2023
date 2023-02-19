@@ -4,4 +4,5 @@ export interface Product {
   description?: string;
   product_id: string;
   type: 'beer' | 'ticket';
+  priority: number;
 }

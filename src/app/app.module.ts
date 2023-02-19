@@ -17,6 +17,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,11 @@ const routes: Routes = [
     component: CheckoutComponent,
     data: { animation: 'Checkout' },
   },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    data: { animation: 'products' },
+  },
 ];
 
 @NgModule({
@@ -62,6 +68,7 @@ const routes: Routes = [
     PackinglistComponent,
     CartComponent,
     CheckoutComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

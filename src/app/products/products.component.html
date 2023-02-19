@@ -1,0 +1,43 @@
+<div class="ticket-container">
+  <div class="title-container">
+    <h1>Køb ting her...</h1>
+    <p class="text-center">
+      Her er alle produkter Skodfest tilbyder. Billetter og øl.
+    </p>
+  </div>
+  <div class="ticket-cards-container">
+    <ng-container *ngFor="let product of products">
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">
+            {{ product.description }}
+          </p>
+          <p>
+            <i>Kr. {{ product.price | number : "0.2" }}</i>
+          </p>
+          <a (click)="addTicketToCart(product)" class="btn buy-btn"
+            >KØB {{ product.name | uppercase }}</a
+          >
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="bottom-modal hide" #bottomModal>
+    <div class="toast-header">
+      <strong class="mr-auto"
+        >{{
+          latestProduct != undefined ? latestProduct.name : "Ukendt produkt"
+        }}
+        er tilføjet til kurven...</strong
+      >
+      <span aria-hidden="true" (click)="closeModal()">&times;</span>
+    </div>
+    <div class="p-3 d-flex justify-content-center">
+      <button routerLink="/cart" class="btn btn-orange text-lg-center">
+        Gå til kurven for at betale!
+      </button>
+    </div>
+  </div>
+</div>
