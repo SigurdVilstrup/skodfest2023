@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from './product';
 import { addDoc, Firestore, getDocs, setDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,7 @@ export class ProductsStoreService {
 
   public products: Product[] = [];
 
-  constructor(public firestore: Firestore, private router: Router) {
+  constructor(public firestore: Firestore) {
     this.retrieveData();
   }
 
