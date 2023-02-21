@@ -1,3 +1,11 @@
+<app-popup
+  [display]="showPopup"
+  title="Noget til ganen?"
+  [displayProduct]="upsaleProduct"
+  (close)="closePopup()"
+  (addProduct)="addUpsaleProductToCart()"
+>
+</app-popup>
 <div class="ticket-container">
   <div class="title-container">
     <h1>Køb din #skodfest billet her</h1>

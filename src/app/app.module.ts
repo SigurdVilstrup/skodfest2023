@@ -18,6 +18,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ProductsComponent } from './products/products.component';
+import { PopupComponent } from './popup/popup.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,7 @@ const routes: Routes = [
     CartComponent,
     CheckoutComponent,
     ProductsComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,

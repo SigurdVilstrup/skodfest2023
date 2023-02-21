@@ -10,7 +10,15 @@ import { ProductsStoreService } from '../products-store.service';
   animations: [slideInAnimation],
 })
 export class TicketComponent implements OnInit {
+  showPopup: boolean = false;
   products?: Product[] = [];
+  upsaleProduct: Product = {
+    name: 'Kasse fælles øl',
+    price: 130,
+    priority: 100,
+    product_id: 'beer_0',
+    type: 'beer',
+  };
 
   latestProduct?: Product;
 
@@ -27,7 +35,19 @@ export class TicketComponent implements OnInit {
   addTicketToCart(product: Product) {
     this.productsService.addProductToCart(product);
     this.latestProduct = product;
+    this.showPopup = true;
     this.showModal();
+  }
+
+  addUpsaleProductToCart() {
+    this.productsService.addProductToCart(this.upsaleProduct);
+    this.showPopup = false;
+    this.latestProduct = this.upsaleProduct;
+    this.showModal();
+  }
+
+  closePopup() {
+    this.showPopup = false;
   }
 
   ngOnInit(): void {
@@ -37,7 +57,7 @@ export class TicketComponent implements OnInit {
   showModal() {
     this.bottomModal?.nativeElement.classList.remove('hide');
 
-    new Promise((r) => setTimeout(r, 5000)).then((_) => {
+    new Promise((r) => setTimeout(r, 3000)).then((_) => {
       this.closeModal();
     });
   }
